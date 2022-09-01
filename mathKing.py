@@ -1,3 +1,8 @@
+"""
+A simple math minigame.
+Start new game, type solution, submit or press enter.
+"""
+
 import tkinter as tk
 from tkinter import messagebox
 import random
@@ -6,12 +11,11 @@ import winsound
 window = tk.Tk()
 window.title('Math King')
 
-
-
 def operation ():
     op = ['+','-']
     i = random.randint(0,1)
     return op[i]
+
 
 def newGame():
     num1 = random.randint(0,10)
@@ -75,25 +79,22 @@ def submit():
     btn_submit['state']='disabled'
     btn_new['state']='normal'
 
+
 def handle_keypress(event):
     if btn_submit['state']=='normal':
         submit()
     elif btn_new['state']=='normal':
         newGame()
     
-    
 
 def info():
-    messagebox.showinfo('How do I play?!?!','Click on "New"(Or press Enter); type your solution;\n click on "Submit"(Or press Enter) and check your answer, then click on "New"(Or press Enter).\n Your score is updated and the best score is saved.\n \n Developed by Dani Greco for a Python course project in Centria UAS.\n \n Enjoy!')
-    
-    
+    messagebox.showinfo('How do I play?!?!','Click on "New"(Or press Enter); type your solution;\n click on "Submit"(Or press Enter) and check your answer, then click on "New"(Or press Enter).\n Your score is updated and the best score is saved.\n \n Developed by Dani for a Python course project in Centria UAS.\n \n Enjoy!')
 
 
 window.configure(bg="lightblue")
 window.rowconfigure(6, minsize=100, weight=1)
 window.columnconfigure([0, 1, 2, 3, 4], minsize=80, weight=1)
 window.bind("<Return>", handle_keypress)
-
 
 lbl_num1 = tk.Label(master=window, text="", bg="lightblue")
 lbl_num1.grid(row=1, column=1)
@@ -106,7 +107,6 @@ lbl_num2.grid(row=1, column=3)
 
 lbl_message = tk.Label(master=window, text="" , width=10, bg="lightblue")
 lbl_message.grid(row=3, column=2)
-
 
 lbl_solution = tk.Label(master=window, width=10, text="", bg="lightblue")
 lbl_solution.grid(row=3, column=1)
