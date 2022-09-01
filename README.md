@@ -1,2 +1,2 @@
 # collection_Python
-a collection of source code written in Python
+a collection of small Python projects
